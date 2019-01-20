@@ -1,0 +1,35 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "com.reservas.org",
+            "nativeLanguage": "es"
+        },
+        "jhipsterVersion": "5.7.2",
+        "applicationType": "monolith",
+        "baseName": "reservas",
+        "packageName": "com.reservas.org",
+        "packageFolder": "com/reservas/org",
+        "serverPort": "8080",
+        "authenticationType": "jwt",
+        "cacheProvider": "no",
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "postgresql",
+        "prodDatabaseType": "postgresql",
+        "searchEngine": false,
+        "messageBroker": false,
+        "serviceDiscoveryType": false,
+        "buildTool": "maven",
+        "enableSwaggerCodegen": false,
+        "jwtSecretKey": "NmUxNTI4YzRlZTVkZWFiODc5Y2E2MzQwZWM0M2FlNjcxOWIzYzEwN2Q0MDM4NDRkMjJjYWVhMzIzNzE1OWRkZjQ5YWRmNzUyZDA5ZDAzOTA1ZGQ4ODE0N2I2ODM5ZjNjMWY4MzViNzVkYTEyMTUzM2YzYTc0Y2U4OGU2OTNmNzE=",
+        "clientFramework": "angularX",
+        "useSass": false,
+        "clientPackageManager": "npm",
+        "testFrameworks": [],
+        "jhiPrefix": "jhi",
+        "otherModules": [],
+        "enableTranslation": true,
+        "nativeLanguage": "es",
+        "languages": ["es"]
+    }
+}
