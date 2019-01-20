@@ -1,0 +1,36 @@
+{
+    "name": "Spot",
+    "fields": [
+        {
+            "fieldName": "numPersonas",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numMesa",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "restaurante",
+            "otherEntityName": "restaurante",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "spotreserva",
+            "otherEntityName": "reserva",
+            "otherEntityRelationshipName": "spot"
+        }
+    ],
+    "changelogDate": "20190120014212",
+    "entityTableName": "spot",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

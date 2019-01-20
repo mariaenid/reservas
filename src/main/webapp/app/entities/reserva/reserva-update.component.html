@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-reserva-heading" jhiTranslate="reservasApp.reserva.home.createOrEditLabel">Create or edit a Reserva</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!reserva.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="reserva.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="reservasApp.reserva.fecha" for="field_fecha">Fecha</label>
+                    <div class="input-group">
+                        <input id="field_fecha" type="text" class="form-control" name="fecha" ngbDatepicker  #fechaDp="ngbDatepicker" [(ngModel)]="reserva.fecha"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="reservasApp.reserva.restaurante" for="field_restaurante">Restaurante</label>
+                    <select class="form-control" id="field_restaurante" name="restaurante" [(ngModel)]="reserva.restaurante" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="restauranteOption.id === reserva.restaurante?.id ? reserva.restaurante : restauranteOption" *ngFor="let restauranteOption of restaurantes; trackBy: trackRestauranteById">{{restauranteOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="reservasApp.reserva.spot" for="field_spot">Spot</label>
+                    <select class="form-control" id="field_spot" name="spot" [(ngModel)]="reserva.spot" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="spotOption.id === reserva.spot?.id ? reserva.spot : spotOption" *ngFor="let spotOption of spots; trackBy: trackSpotById">{{spotOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="reservasApp.reserva.cliente" for="field_cliente">Cliente</label>
+                    <select class="form-control" id="field_cliente" name="cliente" [(ngModel)]="reserva.cliente" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="clienteOption.id === reserva.cliente?.id ? reserva.cliente : clienteOption" *ngFor="let clienteOption of clientes; trackBy: trackClienteById">{{clienteOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+entity Restaurante{
+	nombre String maxlength(100)
+    fecha LocalDate 
+    propietario String maxlength(100)
+    direccion String maxlength(500)
+    imagen Blob
+}
+
+entity Spot{
+	numPersonas Integer
+    numMesa Integer
+}
+
+entity Reserva{
+	fecha LocalDate
+}
+
+entity Cliente{
+	nombres String maxlength(100)
+    correo String maxlength(50)
+}
+
+relationship OneToMany{
+	Restaurante{resspot} to Spot
+    Spot{spotreserva} to Reserva
+    Restaurante{spotreserva} to Reserva
+    Cliente{clientereserva} to Reserva
+}
+
+// Set pagination options
+//paginate Pregunta with infinite-scroll
+paginate Restaurante, Spot, Cliente, Reserva with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Restaurante, Spot, Cliente, Reserva
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

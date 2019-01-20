@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="spot">
+            <h2><span jhiTranslate="reservasApp.spot.detail.title">Spot</span> {{spot.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="reservasApp.spot.numPersonas">Num Personas</span></dt>
+                <dd>
+                    <span>{{spot.numPersonas}}</span>
+                </dd>
+                <dt><span jhiTranslate="reservasApp.spot.numMesa">Num Mesa</span></dt>
+                <dd>
+                    <span>{{spot.numMesa}}</span>
+                </dd>
+                <dt><span jhiTranslate="reservasApp.spot.restaurante">Restaurante</span></dt>
+                <dd>
+                    <div *ngIf="spot.restaurante">
+                        <a [routerLink]="['/restaurante', spot.restaurante?.id, 'view']">{{spot.restaurante?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/spot', spot.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

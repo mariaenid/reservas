@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reserva">
+            <h2><span jhiTranslate="reservasApp.reserva.detail.title">Reserva</span> {{reserva.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="reservasApp.reserva.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{reserva.fecha}}</span>
+                </dd>
+                <dt><span jhiTranslate="reservasApp.reserva.restaurante">Restaurante</span></dt>
+                <dd>
+                    <div *ngIf="reserva.restaurante">
+                        <a [routerLink]="['/restaurante', reserva.restaurante?.id, 'view']">{{reserva.restaurante?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="reservasApp.reserva.spot">Spot</span></dt>
+                <dd>
+                    <div *ngIf="reserva.spot">
+                        <a [routerLink]="['/spot', reserva.spot?.id, 'view']">{{reserva.spot?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="reservasApp.reserva.cliente">Cliente</span></dt>
+                <dd>
+                    <div *ngIf="reserva.cliente">
+                        <a [routerLink]="['/cliente', reserva.cliente?.id, 'view']">{{reserva.cliente?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/reserva', reserva.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

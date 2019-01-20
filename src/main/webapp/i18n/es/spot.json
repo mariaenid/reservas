@@ -1,0 +1,24 @@
+{
+    "reservasApp": {
+        "spot": {
+            "home": {
+                "title": "Spots",
+                "createLabel": "Crear nuevo Spot",
+                "createOrEditLabel": "Crear o editar Spot"
+            },
+            "created": "Un nuevo Spot ha sido creado con el identificador {{ param }}",
+            "updated": "Un Spot ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Spot ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Spot {{ id }}?"
+            },
+            "detail": {
+                "title": "Spot"
+            },
+            "numPersonas": "Num Personas",
+            "numMesa": "Num Mesa",
+            "restaurante": "Restaurante",
+            "spotreserva": "Spotreserva"
+        }
+    }
+}

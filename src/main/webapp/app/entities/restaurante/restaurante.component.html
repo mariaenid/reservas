@@ -1,0 +1,73 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="reservasApp.restaurante.home.title">Restaurantes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-restaurante" [routerLink]="['/restaurante/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="reservasApp.restaurante.home.createLabel">
+            Create new Restaurante
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="restaurantes">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombre"><span jhiTranslate="reservasApp.restaurante.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fecha"><span jhiTranslate="reservasApp.restaurante.fecha">Fecha</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="propietario"><span jhiTranslate="reservasApp.restaurante.propietario">Propietario</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="direccion"><span jhiTranslate="reservasApp.restaurante.direccion">Direccion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="imagen"><span jhiTranslate="reservasApp.restaurante.imagen">Imagen</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let restaurante of restaurantes ;trackBy: trackId">
+                <td><a [routerLink]="['/restaurante', restaurante.id, 'view' ]">{{restaurante.id}}</a></td>
+                <td>{{restaurante.nombre}}</td>
+                <td>{{restaurante.fecha | date:'mediumDate'}}</td>
+                <td>{{restaurante.propietario}}</td>
+                <td>{{restaurante.direccion}}</td>
+                <td>
+                    <a *ngIf="restaurante.imagen" (click)="openFile(restaurante.imagenContentType, restaurante.imagen)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="restaurante.imagen">{{restaurante.imagenContentType}}, {{byteSize(restaurante.imagen)}}</span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/restaurante', restaurante.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/restaurante', restaurante.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'restaurante/'+ restaurante.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="restaurantes && restaurantes.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

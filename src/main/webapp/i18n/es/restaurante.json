@@ -1,0 +1,27 @@
+{
+    "reservasApp": {
+        "restaurante": {
+            "home": {
+                "title": "Restaurantes",
+                "createLabel": "Crear nuevo Restaurante",
+                "createOrEditLabel": "Crear o editar Restaurante"
+            },
+            "created": "Un nuevo Restaurante ha sido creado con el identificador {{ param }}",
+            "updated": "Un Restaurante ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Restaurante ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Restaurante {{ id }}?"
+            },
+            "detail": {
+                "title": "Restaurante"
+            },
+            "nombre": "Nombre",
+            "fecha": "Fecha",
+            "propietario": "Propietario",
+            "direccion": "Direccion",
+            "imagen": "Imagen",
+            "resspot": "Resspot",
+            "spotreserva": "Spotreserva"
+        }
+    }
+}
