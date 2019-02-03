@@ -3,6 +3,7 @@ import { HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/ht
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
+import { formatDate } from '@angular/common';
 
 import { ICliente } from 'app/shared/model/cliente.model';
 import { AccountService } from 'app/core';

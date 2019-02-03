@@ -1,0 +1,33 @@
+.spot-container {
+    width: 100%;
+    border: 2px solid #000000;
+    min-height: 320px;
+    margin-bottom: 10px;
+
+    img {
+        width: 100%;
+    }
+
+    .subcontainer {
+        width: 100%;
+    }
+}
+
+.spot-data {
+    padding: 10px;
+}
+
+.text-bold {
+    font-weight: bold;
+    color: #337ab7;
+    font-size: 20px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #cacaca;
+}
+
+.boton-reservar {
+    display: flex;
+}

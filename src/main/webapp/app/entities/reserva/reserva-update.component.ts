@@ -68,6 +68,8 @@ export class ReservaUpdateComponent implements OnInit {
     }
 
     save() {
+        console.log('Esta es una reserva', this.reserva);
+
         this.isSaving = true;
         if (this.reserva.id !== undefined) {
             this.subscribeToSaveResponse(this.reservaService.update(this.reserva));

@@ -27,6 +27,12 @@ export class SpotService {
         return this.http.get<ISpot>(`${this.resourceUrl}/${id}`, { observe: 'response' });
     }
 
+    findByRestauranteId(id: number): Observable<EntityArrayResponseType> {
+        const options = createRequestOption(id);
+        const res = SERVER_API_URL + 'api/spotsRestaurante';
+        return this.http.get<ISpot[]>(`${res}/${id}`, { observe: 'response' });
+    }
+
     query(req?: any): Observable<EntityArrayResponseType> {
         const options = createRequestOption(req);
         return this.http.get<ISpot[]>(this.resourceUrl, { params: options, observe: 'response' });

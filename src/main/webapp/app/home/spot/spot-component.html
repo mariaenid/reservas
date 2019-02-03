@@ -1,0 +1,28 @@
+<div class="spot-container">
+	<div>
+		<img src="/content/images/mesa.jpg">
+	</div>
+	<div class="spot-data flex-center">
+		<div class="subcontainer">
+			<div class="row padding-bottom">
+				<div class="col-md-6 col-xs-6 flex-center text-bold">
+					{{spot.numMesa}}
+				</div>
+				<div class="col-md-6 col-xs-6  flex-center text-bold">
+					{{spot.numPersonas}}
+				</div>
+			</div>
+			<div class="row padding-bottom">
+				<div class="col-md-6 col-xs-6 flex-center subtitle">
+					<strong>MESA</strong>
+				</div>
+				<div class="col-md-6 col-xs-6 flex-center subtitle">
+					<strong>PERSONAS</strong>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="flex-center boton-reservar">
+		<button type="button" class="btn btn-primary" (click)="saveReserve()">Reservar</button>
+	</div>
+</div>

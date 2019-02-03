@@ -7,9 +7,72 @@ services:
             - SPRING_PROFILES_ACTIVE=prod,swagger
             - SPRING_DATASOURCE_URL=jdbc:postgresql://reservas-postgresql:5432/reservas
             - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - RABBITMQ_HOST=rabbit1
+            - CONSENSO_MYHOSTNAME=1
+            - CONSENSO_PESO=6
+            - CONSENSO_TIMEOUT = 30000 #MILISEGUNDOS
         ports:
             - 8080:8080
     reservas-postgresql:
         extends:
             file: postgresql.yml
             service: reservas-postgresql
+
+    rabbit1:
+        image: rabbitmq
+        environment:
+            - RABBITMQ_ERLANG_COOKIE=SWQOKODSQALRPCLNMEQG
+            - RABBITMQ_DEFAULT_USER=admin
+            - RABBITMQ_DEFAULT_PASS=admin
+            - RABBITMQ_DEFAULT_VHOST=/
+        ports:
+            - 15672:15672
+            - 5672:5672
+        volumes:
+            - ./plugins:/etc/rabbitmq/enabled_plugins
+
+    reservas-app-dos:
+        image: reservas
+        environment:
+            - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://reservas-postgresql-dos:5432/reservas
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - RABBITMQ_HOST=rabbit1
+            - CONSENSO_MYHOSTNAME=2
+            - CONSENSO_PESO=6
+            - CONSENSO_TIMEOUT = 30000 #MILISEGUNDOS
+
+        ports:
+            - 8081:8080
+    reservas-postgresql-dos:
+        image: postgres:10.4
+        # volumes:
+        #     - ~/volumes/jhipster/reservas/postgresql/:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=reservas
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5433:5432
+    reservas-app-tres:
+        image: reservas
+        environment:
+            - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://reservas-postgresql-tres:5432/reservas
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - RABBITMQ_HOST=rabbit1
+            - CONSENSO_MYHOSTNAME=3
+            - CONSENSO_PESO=6
+            - CONSENSO_TIMEOUT = 30000 #MILISEGUNDOS
+        ports:
+            - 8082:8080
+    reservas-postgresql-tres:
+        image: postgres:10.4
+        # volumes:
+        #     - ~/volumes/jhipster/reservas/postgresql/:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=reservas
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5434:5432

@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -123,5 +122,15 @@ public class SpotResource {
 
         spotRepository.deleteById(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
+    }
+
+    @GetMapping("/spotsRestaurante/{id}")
+    @Timed
+    public ResponseEntity<List<Spot>> spotRestaurante(@PathVariable long id) {
+        log.debug("REST request to get Spot by restaurante : {}", id);
+        List<Spot> page = spotRepository.findByRestauranteId(id);
+        HttpHeaders headers = HeaderUtil.createAlert(ENTITY_NAME, String.valueOf(id));
+        return ResponseEntity.ok().headers(headers).body(page);
+
     }
 }

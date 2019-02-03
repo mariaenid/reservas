@@ -2,6 +2,7 @@ package com.reservas.org.web.rest;
 
 import com.reservas.org.ReservasApp;
 
+import com.reservas.org.config.ApplicationProperties;
 import com.reservas.org.domain.Reserva;
 import com.reservas.org.repository.ReservaRepository;
 import com.reservas.org.web.rest.errors.ExceptionTranslator;
@@ -11,6 +12,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.http.MediaType;
@@ -40,6 +42,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ReservasApp.class)
+@EnableConfigurationProperties({ApplicationProperties.class})
 public class ReservaResourceIntTest {
 
     private static final LocalDate DEFAULT_FECHA = LocalDate.ofEpochDay(0L);
@@ -100,7 +103,6 @@ public class ReservaResourceIntTest {
     @Transactional
     public void createReserva() throws Exception {
         int databaseSizeBeforeCreate = reservaRepository.findAll().size();
-
         // Create the Reserva
         restReservaMockMvc.perform(post("/api/reservas")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)

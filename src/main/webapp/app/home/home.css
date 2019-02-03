@@ -3,7 +3,7 @@ Main page styles
 ========================================================================== */
 
 .hipster {
-    display: inline-block;
+    display: flex;
     width: 347px;
     height: 497px;
     background: url('../../content/images/jhipster_family_member_1.svg') no-repeat center top;
@@ -20,4 +20,8 @@ Main page styles
         background: url('../../content/images/jhipster_family_member_1.svg') no-repeat center top;
         background-size: contain;
     }
+}
+
+.restaurant-card {
+    display: flex;
 }

@@ -1,0 +1,27 @@
+<div class="item-container" (click)="viewRestaurant()">
+    <div class="flex-center padding-bottom">
+
+        <img [src]="'/content/images/' + restaurant.id +'.png'">
+
+	</div>
+
+    <div class="text-center padding-bottom">
+		<strong>{{restaurant.nombre}}</strong>
+	</div>
+	<div class="row padding-bottom">
+		<div class="col-md-2 col-xs-2 flex-center">
+			<span class="glyphicon glyphicon-map-marker"></span>
+		</div>
+		<div class="col-md-10 col-xs-10">
+			{{restaurant.direccion}}
+		</div>
+	</div>
+	<div class="row padding-bottom">
+		<div class="col-md-2 col-xs-2 flex-center">
+			<span class="glyphicon glyphicon-globe"></span>
+		</div>
+		<div class="col-md-10 col-xs-10">
+			{{restaurant.propietario}}
+		</div>
+	</div>
+</div>

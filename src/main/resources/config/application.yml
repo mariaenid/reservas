@@ -56,7 +56,9 @@ spring:
             enabled: false
     thymeleaf:
         mode: HTML
-
+    jackson:
+        serialization:
+            write-dates-as-timestamps: false
 server:
     servlet:
         session:
@@ -110,4 +112,11 @@ jhipster:
 # https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
-# application:
+
+rabbitmq:
+    host: localhost
+    port: 5672
+    user: admin
+    password: admin
+    virtualhost: /
+

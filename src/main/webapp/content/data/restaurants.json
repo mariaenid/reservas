@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "BOCATTO DA FIORENTINO",
+        "city": "QUITO",
+        "menu": "Pizza, calzone, pasta, filete balsámico, rissotto frutti di mare, etc.",
+        "address": "Mall El Jardín, 3er nivel; Scala Shopping, 2do nivel.",
+        "web": "www.bocatto.com.ec",
+        "phone": "(593 2) 2980 264 / 2928 053",
+        "image": "assets/images/bocatto.png"
+    },
+    {
+        "id": 2,
+        "name": "RINCON DE FRANCIA",
+        "city": "QUITO",
+        "menu": "Pangora fría con espárragos, cangrejos rellenos con martinique, conejo a la mostaza de dijon, escargots a la bourguignom, etc.",
+        "address": "Vicente Ramón Roca N21-182 y Av. 9 de Octubre.",
+        "web": "www.rincondefrancia.com",
+        "phone": "(593 2) 2225 053",
+        "image": "assets/images/rincon_francia.png"
+    },
+    {
+        "id": 3,
+        "name": "EL CHACAL PARRILLA",
+        "city": "QUITO",
+        "menu": "Picaña, lomo de cerdo, bife de chorizo, etc.",
+        "address": "Av. Eloy Alfaro y Fernando Ayarza.",
+        "web": "www.elchacalparrilla.com",
+        "phone": "(593 2) 2463 792",
+        "image": "assets/images/chacal_parrilla.png"
+    },
+    {
+        "id": 4,
+        "name": "EL JARDÍN",
+        "city": "CUENCA",
+        "menu": "Fritada, los langostinos o el cordon bleu.",
+        "address": "Calle Larga 6-93 y Presidente Borrero.",
+        "web": "www.eljardincuenca.com",
+        "phone": "(5937) 2827 401",
+        "image": "assets/images/el_jardin.png"
+    },
+    {
+        "id": 5,
+        "name": "NOE SUSHI BAR",
+        "city": "QUITO, GUAYAQUIL, CUENCA",
+        "menu": "Rollos de sushi, sashimi, sopa, ensalada de algas, etc.",
+        "address": "QUITO, GUAYAQUIL, CUENCA.",
+        "web": "www.noesushibar.com",
+        "phone": "1800 NOE NOE (663 663)",
+        "image": "assets/images/noe_sushi_bar.png"
+    },
+    {
+        "id": 6,
+        "name": "MCDONALD'S",
+        "city": "QUITO, GUAYAQUIL, CUENCA",
+        "menu": "Hamburguesas, wraps, nuggets, ensaladas, etc.",
+        "address": "Varios locales, consultar página web",
+        "web": "www.mcdonalds.com.ec",
+        "phone": "N/D",
+        "image": "assets/images/macdonalds.png"
+    }
+]
